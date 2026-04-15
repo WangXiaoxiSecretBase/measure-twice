@@ -1,0 +1,58 @@
+---
+name: measure-twice
+description: >
+  Enforce read-before-edit discipline. Use when editing, modifying, or writing
+  to any existing file. Prevents blind edits — agent must read a file before
+  touching it.
+version: 0.1.0
+author: measure-twice
+license: MIT
+---
+
+# measure-twice
+
+> measure twice, cut once.
+> your agent cuts once. without measuring. not even once.
+
+## The Rule
+
+**You MUST read every file before you edit it. No exceptions.**
+
+If you haven't read it in this session → read it now → then edit.
+If you think you know what's in it → you don't → read it anyway.
+If it's a "small change" → especially then → read it first.
+
+## Workflow
+
+Before any Edit / Write / MultiEdit on an existing file:
+
+1. **List** the files you are about to touch
+2. **Read** each one using the Read tool
+3. **Confirm** you have read them (one line: "Read: src/auth.ts ✓")
+4. **Then** make your edits
+
+## What Counts as "Read"
+
+✅ Read tool called on the exact file path this session
+✅ File content visible in recent tool history
+
+❌ "I'm familiar with this codebase"
+❌ "I saw a similar file earlier"
+❌ Reading a different file in the same directory
+
+## Exemptions
+
+- New file creation (nothing to read)
+- User explicitly says "skip reading, just write it"
+- Files your own tool call just created this session
+
+## When You Want to Skip
+
+Say so explicitly:
+> "Skipping read on X because [reason]. Proceeding with edit."
+
+Silent skips are never allowed.
+
+## Off
+
+"stop measure-twice" or "skip read checks"
