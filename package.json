@@ -1,0 +1,32 @@
+{
+  "name": "measure-twice",
+  "version": "0.1.0",
+  "description": "Read files before editing them. Measure twice, cut once. Your agent cuts once. Without measuring. Not even once.",
+  "author": {
+    "name": "measure-twice"
+  },
+  "homepage": "https://github.com/measure-twice/measure-twice",
+  "repository": "https://github.com/measure-twice/measure-twice",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "agent",
+    "skill",
+    "read-first",
+    "edit-discipline",
+    "code-quality",
+    "safety"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "measure-twice",
+    "shortDescription": "Read files before editing them. Measure twice, cut once.",
+    "longDescription": "Enforces read-before-edit discipline for AI coding agents. Prevents blind edits by requiring the agent to read every file before touching it. Based on real session data showing 1 in 3 edits target unread files.",
+    "category": "Safety",
+    "capabilities": ["Code"],
+    "defaultPrompt": [
+      "Before editing any existing file, you must read it first using the Read tool. List the files you will touch, read each one, confirm with 'Read: <filepath> ✓', then proceed with edits. Silent skips are never allowed."
+    ],
+    "brandColor": "#2D3748"
+  }
+}
